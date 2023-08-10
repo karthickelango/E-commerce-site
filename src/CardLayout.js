@@ -22,7 +22,7 @@ const CardLayout = ({products}) => {
                       <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=="></img>
                     </span> <span className='rating-count'>({product.rating.count})</span></p>
                     <p className="card-text price">$ {product.price}</p>
-                      <a className="btn btn-primary chart-btn ">Shop now !</a> 
+                      <a className="shop-btn ">Shop now !</a> 
                   </div>
               </div>
               </Link>
