@@ -14,6 +14,7 @@ import DescriptionPage from './DescriptionPage';
 function App() {
   
   const [products, setProducts] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useState(() => {
     const fetchItems = async() => {
@@ -22,17 +23,21 @@ function App() {
         setProducts(response.data)
       } catch(err) {
         console.log(err)
+      }finally {
+        setIsLoading(false)
       }
     }
-    fetchItems();
+    setTimeout(() => {
+      (async() => fetchItems())()
+    }, 3000)
   })
 
   return (
     <div className="App">
-     <NavBar></NavBar>
-     <Routes>
-      <Route path='/' element={<Home products={products}/>}></Route>
-      <Route path='categories' element={<Categories/>}></Route>
+      <NavBar></NavBar>
+      <Routes>
+      <Route path='/' element={<Home products={products} isLoading={isLoading} setIsLoading={setIsLoading}/>}></Route>
+      <Route path='categories' element={<Categories products={products} isLoading={isLoading} setIsLoading={setIsLoading}/>}></Route>
       <Route path='new arrival' element={<NewArrival/>}></Route>
       <Route path='brand' element={<Brand/>}></Route>
       <Route path='cart' element={<Cart/>}></Route>

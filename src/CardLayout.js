@@ -11,7 +11,7 @@ const CardLayout = ({products}) => {
         <div className='row'>
             {products.map(product => (
               <div className="col l14 m4 s12 mb-5 p-3 list-item">
-                <Link to={`descriptionpage/${product.id}`}>
+                <Link to={`descriptionpage/${product.id}`} key={id}>
                 <div className="card" id={product.id}>
                 <img src={product.image} className="card-img-top p-5" alt="..." />
                   <div className="card-content">
