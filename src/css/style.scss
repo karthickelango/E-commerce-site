@@ -341,3 +341,22 @@ button:focus {
 		}
 	}
 }
+header {
+	position: fixed !important;
+	z-index: 9;
+}
+main {
+	padding-top: 64px;
+}
+.ffu8bod {
+	img {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		font-family: Signika;
+		font-weight: bold;
+		font-size: 1.5em;
+		margin-bottom: 30px;
+	}
+}

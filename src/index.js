@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import '../src/css/style.scss';
-import '../src/css/slick-theme.css'
 import '../src/css/fontello.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';

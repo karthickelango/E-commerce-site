@@ -1,14 +1,16 @@
+import { Button } from '@mui/material';
 import React from 'react'
 import { useParams } from 'react-router-dom'
-
 
 const sociaoIcons = ['icon-facebook fb-icon',' icon-twitter-alt fb-tw', 'icon-google fb-go', 'icon-pinterest fb-pi', 'icon-printer fb-pr', 'icon-email fb-em'];
 const payIcon = ['icon-cc-paypal', 'icon-cc-visa', 'icon-cc-mastercard', 'icon-cc-stripe', 'icon-cc-amex']
 const contactOptions = [{icon: 'icon-headphone-alt', text: 'CALL +9999999999 TO QUERY'}, {icon: 'icon-truck', text: 'USUALLY SHIPS IN 10-15 WORKING DAYS'}, {icon: 'icon-reload', text: 'EASY RETURN'}]
 const views = [{icon: 'icon-eye viewed-col', text: 'Viewed:', item: '40 items'}, {icon: 'icon-heart viewed-col', text: 'Add to Boards:', item: '40 items'}, {icon: 'icon-shopping-cart viewed-col', text: 'Last Purchased:', item: '4 Days ago'}]
-const DescriptionPage = ({products}) => {
+
+const DescriptionPage = ({products, handelNavigate}) => {
   const {id} = useParams()
   const product = products.find(product => (product.id).toString() === id)
+
   return (
 <main classNameName='list-item mt-3'>
    <div className="nav-margin">
@@ -66,6 +68,11 @@ const DescriptionPage = ({products}) => {
                            <div className="col l12 m12 s12 buy_margin">
                               <div className="row">
                                  <div className="col l6 m6 s12 hide-on-small-only">
+                                    <Button onClick={handelNavigate}>
+                                       <div className="waves-effect chart-btn btn lg">Add to cart</div>
+                                    </Button>
+                                 </div>
+                                 <div className="col l6 m6 s12 hide-on-small-only">
                                     <a href="cart.html" className="waves-effect chart-btn btn lg">BUY NOW</a>
                                  </div>
                               </div>
@@ -74,7 +81,7 @@ const DescriptionPage = ({products}) => {
                         <div className="col l12 m12 s12">
                            <ul className="query-part">
                            {contactOptions.map((cOption) => (
-                              <li>
+                              <li key={id}>
                                  <span className={cOption.icon}>&nbsp;&nbsp; {cOption.text}</span>     
                               </li>
                               ))} 
@@ -100,7 +107,7 @@ const DescriptionPage = ({products}) => {
                         </div>
                         <div className="col m12 l12 social-mar">
                            <ul className="social-row">
-                              <li>
+                              <li key={id}>
                                  {sociaoIcons.map((sicons) => (
                                  <span className={sicons}></span>
                                  ))}

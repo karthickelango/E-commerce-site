@@ -9,12 +9,19 @@ import Home from './Home'
 import { useState } from 'react';
 import api from './api/products'
 import DescriptionPage from './DescriptionPage';
+import { useNavigate } from "react-router-dom";
+
 
 
 function App() {
   
   const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const navigate = useNavigate()
+
+  const handelNavigate = (e) => {
+    navigate('/cart')
+  }
 
   useState(() => {
     const fetchItems = async() => {
@@ -40,9 +47,9 @@ function App() {
       <Route path='categories' element={<Categories products={products} isLoading={isLoading} setIsLoading={setIsLoading}/>}></Route>
       <Route path='new arrival' element={<NewArrival/>}></Route>
       <Route path='brand' element={<Brand/>}></Route>
-      <Route path='cart' element={<Cart/>}></Route>
+      <Route path='cart' element={<Cart/>}/>
       <Route path='descriptionpage/:id' element={<DescriptionPage
-        products={products}
+        products={products} handelNavigate={handelNavigate}
       />}></Route>
      </Routes>
     </div>
