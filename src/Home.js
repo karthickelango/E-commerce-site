@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import CardLayout from './CardLayout'
 import Loader from './loader.gif'
 import { Rerousel } from 'rerousel'
 import { useRef } from 'react'
+import DataContext from './context/DataContext'
 
-const Home = ({products, isLoading}) => {
+const Home = () => {
+  const {products, isLoading} = useContext(DataContext)
   const ref = useRef(null);
 
   return (

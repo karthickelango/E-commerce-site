@@ -10,8 +10,8 @@ const CardLayout = ({products}) => {
       <div className=''>
         <div className='row'>
             {products.map(product => (
-              <div className="col l14 m4 s12 mb-5 p-3 list-item">
-                <Link to={`descriptionpage/${product.id}`} key={product.id}>
+              <div className="col l14 m4 s12 mb-5 p-3 list-item" key={product.id}>
+                <Link to={`descriptionpage/${product.id}`}>
                 <div className="card" id={product.id}>
                 <img src={product.image} className="card-img-top p-5" alt="..." />
                   <div className="card-content">
@@ -22,7 +22,7 @@ const CardLayout = ({products}) => {
                       <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=="></img>
                     </span> <span className='rating-count'>({product.rating.count})</span></p>
                     <p className="card-text price">$ {product.price}</p>
-                      <a className="shop-btn ">Shop now !</a> 
+                      <span className="shop-btn ">Shop now !</span> 
                   </div>
               </div>
               </Link>

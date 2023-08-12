@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Loader from './loader.gif'
 import { Link, useParams } from 'react-router-dom'
+import DataContext from './context/DataContext'
 
-const Categories = ({isLoading, products}) => {
+const Categories = () => {
+  const {isLoading, products} = useContext(DataContext)
   const {id} = useParams()
   const product = products.find(product => (product.id).toString() === id)
   return (
