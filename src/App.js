@@ -10,8 +10,6 @@ import { useState } from 'react';
 import api from './api/products'
 import DescriptionPage from './DescriptionPage';
 import { useNavigate } from "react-router-dom";
-import Login from './Login';
-import Profile from './Profile';
 import { DataProvider } from './context/DataContext';
 
 
