@@ -49,7 +49,7 @@ const Cart = () => {
             </div>
             <div className='col l14 m4 s12 sticky-card'>
             <div className='card'>
-              <h5 className='br-1 p-3 text-start mt-0'>Price details</h5>
+              <h5 className='br-1 p-3 text-start mt-0 color-secondary'>Price details</h5>
             <div className='p-3 d-f-j'>
               Price of ({products.length} items): <span className='text-end'>$ {totalValue}</span>
             </div>
