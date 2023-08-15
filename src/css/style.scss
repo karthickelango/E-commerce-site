@@ -1,3 +1,6 @@
+body {
+	background-color: #f1f3f6;
+}
 .navPages {
 	justify-content: end !important;
 
@@ -17,19 +20,50 @@ a {
 }
 
 .p-3 {
-	padding: 15px;
+	padding: 15px 20px;
 }
-
+.mt-0 {
+	margin-top: 0px;
+}
 .text-truncate {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
 }
-
+.text-start {
+	text-align: start;
+}
+.text-end {
+	text-align: end;
+}
+.d-f-j {
+	display: flex;
+	justify-content: space-between;
+}
+.fw-700 {
+	font-weight: 700;
+}
+.text-color-green {
+	color: #388e3c;
+}
 ul li {
 	list-style-type: none;
 }
-
+.br-1 {
+	border-bottom:1px solid #ccc ;
+}
+.row {
+	margin: 0;
+}
+.sticky-card {
+	position: sticky;
+    top: 64px;
+}
+.divider-dashed {
+	border-top: 1px dashed #ccc;
+    width: 90%;
+    margin: 0 auto;
+}
 .shop-btn {
 	color: #000;
 	font-size: 24px;
@@ -59,6 +93,14 @@ button:focus {
 		width: 400px;
 		height: 300px;
 	}
+	.emptyCart {
+		width: auto;
+		height: auto;
+	}
+	&.empty {
+		display: block;
+		margin-top: 10%;
+	}
 }
 .chart-btn {
 	border: 1px solid #FFC107;
@@ -66,7 +108,7 @@ button:focus {
 	font-weight: 500;
 	margin-top: 15px;
 	font-size: 20px;
-
+	text-transform: capitalize;
 	&:hover {
 		background-color: #FFC107;
 	}
@@ -76,6 +118,33 @@ button:focus {
 		height: 50px;
 		line-height: 50px;
 	}
+	&.remove {
+		border: 1px solid #000;
+    	background-color: transparent;
+    	color: #000;
+    	font-weight: 400;
+		font-size: 14px;
+		box-shadow: none;
+		&:hover {
+			border: 1px solid #F44336;
+			background-color: #F44336;
+			color: #FFF;
+			box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+		}
+	}
+	&.default-btn {
+		background-color: #2874f0;
+		border: 1px solid #2874f0;
+    	color: #fff;
+		font-size: 14px;
+		box-shadow: none;
+		&:hover {
+			background-color: #2874f0;
+			border: 1px solid #2874f0;
+    		color: #fff;
+			box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+		}
+		}
 }
 
 .list-item {
@@ -120,6 +189,11 @@ button:focus {
 			box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
 		}
 	}
+&.cart-item {
+	&.col .row {
+		margin: 0px;
+	}
+}	
 }
 
 .my-board {
@@ -136,7 +210,7 @@ button:focus {
 		position: absolute;
 		top: 6px;
 		right: 0;
-		z-index: 99;
+		z-index: 1;
 		cursor: pointer;
 
 		&:before {
@@ -364,4 +438,34 @@ main {
 		font-size: 1.5em;
 		margin-bottom: 30px;
 	}
+}
+.animate-count {
+	background-color: #2874f0;
+    padding: 0px 6px;
+    border-radius: 100px;
+    color: #fff;
+    font-size: 10px;
+    position: absolute;
+    top: -5px;
+    left: 30px;
+	&.wishlist {
+	 background-color: #F44336;
+	 left: 85px;
+	}
+}
+.favIcon {
+	position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #F44336;
+}
+.css-8rvggi-MuiTypography-root {
+	font-weight: 500;
+	font-style: italic;
+	background-color: #2874f0;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
 }

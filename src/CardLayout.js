@@ -1,16 +1,22 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import {add} from './store/cartSlice'
 
 const CardLayout = ({products}) => {
+  const dispatch = useDispatch()
   const {id} = useParams()
-  const product = products.find(product => (product.id).toString() === id)
+  // const product = products.find(product => (product.id).toString() === id)
+  const addToCart = (product) => {
+    dispatch(add(product))
+  }
 
   return (
     <>
       <div className=''>
         <div className='row'>
             {products.map(product => (
-              <div className="col l14 m4 s12 mb-5 p-3 list-item" key={product.id}>
+              <div className="col l13 m3 s12 mb-5 p-3 list-item" key={product.id}>
                 <Link to={`descriptionpage/${product.id}`}>
                 <div className="card" id={product.id}>
                 <img src={product.image} className="card-img-top p-5" alt="..." />
@@ -26,6 +32,7 @@ const CardLayout = ({products}) => {
                   </div>
               </div>
               </Link>
+              {/* <button onClick={() => addToCart(product)}>Add to cart</button> */}
             </div>
           ))}
       </div>

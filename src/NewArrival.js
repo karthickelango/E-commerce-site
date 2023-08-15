@@ -2,7 +2,9 @@ import React from 'react'
 
 const NewArrival = () => {
   return (
-    <div>New Arrival</div>
+    <main>
+      <div>New Arrival</div>
+    </main>
   )
 }
 

@@ -6,6 +6,7 @@ import NewArrival from './NewArrival';
 import Brand from './Brand';
 import Cart from './Cart'
 import Home from './Home'
+import Wishlist from './Wishlist';
 import { useState } from 'react';
 import api from './api/products'
 import DescriptionPage from './DescriptionPage';
@@ -21,8 +22,8 @@ function App() {
         <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='categories' element={<Categories />}></Route>
-        <Route path='new arrival' element={<NewArrival/>}></Route>
         <Route path='brand' element={<Brand/>}></Route>
+        <Route path='wishlist' element={<Wishlist/>}></Route>
         <Route path='cart' element={<Cart />}/>
         <Route path='descriptionpage/:id' element={<DescriptionPage />}></Route>
       </Routes>

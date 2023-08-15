@@ -6,14 +6,9 @@ import '../src/css/fontello.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
+import store from './store/store';
 
-const store = configureStore({
-  reducer:{
-    user: userReducer
-  }
-})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,8 +16,8 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <App />
-      </BrowserRouter>  
-    </Provider>
+      </BrowserRouter>
+     </Provider>  
   </React.StrictMode>
 );
 

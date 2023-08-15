@@ -1,7 +1,10 @@
-import { Button } from '@mui/material';
 import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import DataContext from './context/DataContext';
+import {add} from './store/cartSlice'
+import { useDispatch } from 'react-redux';
+import { addWishlist } from './store/wishlistSlice';
+
 
 const sociaoIcons = ['icon-facebook fb-icon',' icon-twitter-alt fb-tw', 'icon-google fb-go', 'icon-pinterest fb-pi', 'icon-printer fb-pr', 'icon-email fb-em'];
 const payIcon = ['icon-cc-paypal', 'icon-cc-visa', 'icon-cc-mastercard', 'icon-cc-stripe', 'icon-cc-amex']
@@ -9,10 +12,16 @@ const contactOptions = [{id: 0, icon: 'icon-headphone-alt', text: 'CALL +9999999
 const views = [{id: 0, icon: 'icon-eye viewed-col', text: 'Viewed:', item: '40 items'}, {id: 1, icon: 'icon-heart viewed-col', text: 'Add to Boards:', item: '40 items'}, {id: 2, icon: 'icon-shopping-cart viewed-col', text: 'Last Purchased:', item: '4 Days ago'}]
 
 const DescriptionPage = () => {
+   const dispatch = useDispatch()
    const {products, handelNavigate} = useContext(DataContext)
-  const {id} = useParams()
-  const product = products.find(product => (product.id).toString() === id)
-
+   const {id} = useParams()
+   const product = products.find(product => (product.id).toString() === id)
+   const addItem = (product) => {
+      dispatch(add(product))
+   }
+   const addToWishList = (product) => {
+      dispatch(addWishlist(product))
+   }
   return (
 <main className='list-item mt-3'>
    <div className="nav-margin">
@@ -22,7 +31,7 @@ const DescriptionPage = () => {
                <div className="row">
                   <div className="col l7 m12 s12 my-board">
                      <div className="my-board-position ">
-                        <a className="myboard-trigger" href="#myboard"><span className="product-badge"><span className="icon-heart"></span>&nbsp;ADD TO MY BOARD</span></a> 
+                        <a className="myboard-trigger" onClick={() => addToWishList(product)}><span className="product-badge"><span className="icon-heart"></span>&nbsp;ADD TO WISHLIST</span></a> 
                         <div className="slider-for " id="product-img-view">
                            <div><img  className="responsive-img"  src={product.image} /></div>
                         </div>
@@ -70,9 +79,9 @@ const DescriptionPage = () => {
                            <div className="col l12 m12 s12 buy_margin">
                               <div className="row">
                                  <div className="col l6 m6 s12 hide-on-small-only">
-                                    <Button onClick={handelNavigate} products={products}>
+                                    <div onClick={() => addItem(product)}>
                                        <div className="waves-effect chart-btn btn lg">Add to cart</div>
-                                    </Button>
+                                    </div>
                                  </div>
                                  <div className="col l6 m6 s12 hide-on-small-only">
                                     <a href="cart.html" className="waves-effect chart-btn btn lg">BUY NOW</a>
@@ -89,11 +98,11 @@ const DescriptionPage = () => {
                               ))} 
                            </ul>
                            <ul className="mebel-pay product-container">
-                              <li>
-                                 {payIcon.map((pIcon) => (
-                                 <span className={pIcon}>&nbsp;</span>
-                                 ))}
-                              </li>
+                              {payIcon.map((pIcon) => (
+                                 <li>
+                                    <span className={pIcon}>&nbsp;</span> 
+                                 </li>
+                              ))}
                            </ul>
                         </div>
                         <div className="col l10 m10 s12">
@@ -109,11 +118,11 @@ const DescriptionPage = () => {
                         </div>
                         <div className="col m12 l12 social-mar">
                            <ul className="social-row">
-                              <li>
-                                 {sociaoIcons.map((sicons) => (
-                                 <span className={sicons}></span>
-                                 ))}
-                              </li>
+                              {sociaoIcons.map((sicons) => (
+                                 <li>
+                                    <span className={sicons}></span>
+                                 </li>
+                              ))}
                            </ul>
                         </div>
                      </div>

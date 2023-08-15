@@ -17,9 +17,11 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { Link } from 'react-router-dom';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { useSelector } from 'react-redux';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 
-const pages = ['Categories','New Arrival', 'Brand', 'Cart'];
+const pages = ['Categories','Brand', 'My Wishlist', 'Cart'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Search = styled('div')(({ theme }) => ({
@@ -65,6 +67,9 @@ const Search = styled('div')(({ theme }) => ({
   }));
 
 function NavBar() {
+  const cartProduct = useSelector(state => state.cart)
+  const wishlistProduct = useSelector(state => state.wishlist)
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -102,7 +107,7 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
-            Shopping
+            <ShoppingCartOutlinedIcon/> Shopkart
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -164,20 +169,20 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
-            Shopping
+            <ShoppingCartOutlinedIcon/> Shopkart
           </Typography>
           <Box className="navPages" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Link to='Categories' sx={{ my: 2, color: 'white', display: 'block' }} >
                 <Button>Categories</Button>
               </Link>
-              <Link to='new arrival' sx={{ my: 2, color: 'white', display: 'block' }} >
-                <Button>New Arrival</Button>
-              </Link>
               <Link to='brand' sx={{ my: 2, color: 'white', display: 'block' }} >
                 <Button>Brand</Button>
               </Link>
+              <Link to='wishlist' sx={{ my: 2, color: 'white', display: 'block' }} >
+                <Button><span className="icon-heart"></span> My Wishlist {wishlistProduct.length > 0 ? <span className='animate-count wishlist'>{wishlistProduct.length}</span> : ''}</Button>
+              </Link>
               <Link to='cart' sx={{ my: 2, color: 'white', display: 'block' }} >
-                <Button><ShoppingCartOutlinedIcon/></Button>
+                <Button><ShoppingCartOutlinedIcon/>{cartProduct.length > 0 ? <span className='animate-count'>{cartProduct.length}</span> : ''}</Button>
               </Link>
           </Box>
 
