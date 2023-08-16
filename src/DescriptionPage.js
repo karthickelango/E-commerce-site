@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import DataContext from './context/DataContext';
 import {add} from './store/cartSlice'
 import { useDispatch } from 'react-redux';
 import { addWishlist } from './store/wishlistSlice';
-
+import { useSelector } from 'react-redux';
 
 const sociaoIcons = ['icon-facebook fb-icon',' icon-twitter-alt fb-tw', 'icon-google fb-go', 'icon-pinterest fb-pi', 'icon-printer fb-pr', 'icon-email fb-em'];
 const payIcon = ['icon-cc-paypal', 'icon-cc-visa', 'icon-cc-mastercard', 'icon-cc-stripe', 'icon-cc-amex']
@@ -13,21 +13,22 @@ const views = [{id: 0, icon: 'icon-eye viewed-col', text: 'Viewed:', item: '40 i
 
 const DescriptionPage = () => {
    const dispatch = useDispatch()
-   const {products, handelNavigate} = useContext(DataContext)
    const {id} = useParams()
-   const product = products.find(product => (product.id).toString() === id)
+   const products = useSelector(state => state.cart)
    const addItem = (product) => {
       dispatch(add(product))
    }
    const addToWishList = (product) => {
       dispatch(addWishlist(product))
    }
+
   return (
 <main className='list-item mt-3'>
    <div className="nav-margin">
       <div className="row">
          <div className="col m12 l12 s12">
             <div className="card">
+            {products.map(product => (
                <div className="row">
                   <div className="col l7 m12 s12 my-board">
                      <div className="my-board-position ">
@@ -128,6 +129,7 @@ const DescriptionPage = () => {
                      </div>
                   </div>
                </div>
+               ))}
             </div>
          </div>
       </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Loader from './empty-cart.gif'
 import { removeWishlist } from './store/wishlistSlice'
@@ -8,9 +8,11 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 const Wishlist = () => {
     const dispatch = useDispatch()
     const products = useSelector(state => state.wishlist)
+    console.log(products)
     const removeFromCart = (id) => {
         dispatch(removeWishlist(id))
       }
+
   return (
     <main>
          <>
