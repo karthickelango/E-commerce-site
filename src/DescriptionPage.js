@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { addWishlist } from './store/wishlistSlice';
 import { useSelector } from 'react-redux';
 
+
 const sociaoIcons = ['icon-facebook fb-icon',' icon-twitter-alt fb-tw', 'icon-google fb-go', 'icon-pinterest fb-pi', 'icon-printer fb-pr', 'icon-email fb-em'];
 const payIcon = ['icon-cc-paypal', 'icon-cc-visa', 'icon-cc-mastercard', 'icon-cc-stripe', 'icon-cc-amex']
 const contactOptions = [{id: 0, icon: 'icon-headphone-alt', text: 'CALL +9999999999 TO QUERY'}, {id: 1, icon: 'icon-truck', text: 'USUALLY SHIPS IN 10-15 WORKING DAYS'}, {id: 2, icon: 'icon-reload', text: 'EASY RETURN'}]
@@ -13,8 +14,9 @@ const views = [{id: 0, icon: 'icon-eye viewed-col', text: 'Viewed:', item: '40 i
 
 const DescriptionPage = () => {
    const dispatch = useDispatch()
+   const products = useSelector(state => state.descriptionpage)
    const {id} = useParams()
-   const products = useSelector(state => state.cart)
+   const product = products.find(product => (product.id).toString() === id)
    const addItem = (product) => {
       dispatch(add(product))
    }
@@ -22,13 +24,14 @@ const DescriptionPage = () => {
       dispatch(addWishlist(product))
    }
 
+
+
   return (
 <main className='list-item mt-3'>
    <div className="nav-margin">
       <div className="row">
          <div className="col m12 l12 s12">
             <div className="card">
-            {products.map(product => (
                <div className="row">
                   <div className="col l7 m12 s12 my-board">
                      <div className="my-board-position ">
@@ -129,7 +132,6 @@ const DescriptionPage = () => {
                      </div>
                   </div>
                </div>
-               ))}
             </div>
          </div>
       </div>

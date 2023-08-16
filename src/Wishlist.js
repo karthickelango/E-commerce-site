@@ -8,7 +8,6 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 const Wishlist = () => {
     const dispatch = useDispatch()
     const products = useSelector(state => state.wishlist)
-    console.log(products)
     const removeFromCart = (id) => {
         dispatch(removeWishlist(id))
       }
@@ -19,10 +18,10 @@ const Wishlist = () => {
        { products.length > 0 ?
        <div className=''>
         <div className='row'>
+        {products.map(product => (
               <div className="col l13 m3 s12 mb-5 p-3 list-item cart-item">
                 <div className="card">
                     <FavoriteIcon className='favIcon'></FavoriteIcon>
-                {products.map(product => (
                   <div className='row br-1' id={product.id}>
                       <img src={product.image} className="card-img-top p-5" alt="..." />                  
                   <div className="card-content">
@@ -36,9 +35,9 @@ const Wishlist = () => {
                     <button className='waves-effect chart-btn btn remove' onClick={() => removeFromCart(product.id)}>Remove</button>
                   </div>
                   </div>
-                  ))}
               </div>
             </div>
+            ))}
       </div>
     </div> : <>
               <div className='alignCenter empty'>

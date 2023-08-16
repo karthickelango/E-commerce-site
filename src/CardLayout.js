@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import {add} from './store/cartSlice'
+import {addDescription} from './store/descriptionSlice'
 
 const CardLayout = ({products}) => {
   const dispatch = useDispatch()
@@ -10,14 +11,16 @@ const CardLayout = ({products}) => {
   const addToCart = (product) => {
     dispatch(add(product))
   }
-
+  const addToDes = (product) => {
+    dispatch(addDescription(product))
+  }
   return (
     <>
       <div className=''>
         <div className='row'>
             {products.map(product => (
               <div className="col l13 m3 s12 mb-5 p-3 list-item" key={product.id}>
-                <Link to={`descriptionpage/${product.id}`}>
+                <Link to={`descriptionpage/${product.id}`} onClick={() => addToDes(product)}>
                 <div className="card" id={product.id}>
                 <img src={product.image} className="card-img-top p-5" alt="..." />
                   <div className="card-content">
