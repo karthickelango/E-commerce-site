@@ -2,44 +2,37 @@ import React, { useContext } from 'react'
 import Loader from './loader.gif'
 import { Link, useParams } from 'react-router-dom'
 import DataContext from './context/DataContext'
+import { useEffect, useState } from 'react'
+import api from './api/products'
 
 const Categories = () => {
-  const {isLoading, products} = useContext(DataContext)
-  const {id} = useParams()
-  const product = products.find(product => (product.id).toString() === id)
+  const  catImages = [
+    {id:1, name: 'electronics', categorie: 'electronics' ,image: 'https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg'}, 
+    {id:2, name: 'jewelery', categorie: 'jewelery' ,image: 'https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg'},
+    {id:3, name: 'menclothings', categorie: "men's clothing" ,image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg'},
+    {id:4, name: 'womenclothings', categorie: "women's clothing" ,image: 'https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg'}
+  ] 
+
   return (
     <>
-    {isLoading && 
-      <div className='alignCenter'>
-        <img src={Loader}/>
-      </div>
-      } {!isLoading &&
-        <main>
-      <div className=''>
-        <div className='row'>
-            {products.map(product => (
-              <div className="col l13 m3 s12 mb-5 p-3 list-item">
-                <Link to={`descriptionpage/${product.id}`} key={id}>
-                <div className="card" id={product.id}>
-                <img src={product.image} className="card-img-top p-5" alt="..." />
-                  <div className="card-content">
-                    <h5 className="card-title text-truncate">{product.title}</h5>
-                    <p className="card-text text-truncate">{product.description}</p>
-                    <p className="card-text rating">Rating: 
-                    <span className='rating-star'>{product.rating.rate} 
-                      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=="></img>
-                    </span> <span className='rating-count'>({product.rating.count})</span></p>
-                    <p className="card-text price">$ {product.price}</p>
-                      <a className="shop-btn ">Shop now !</a> 
-                  </div>
+      <main>
+        <>
+        <div className='container'>
+          <div className='row'>
+          {catImages.map((catImage) => (
+            <Link to={catImage.name}>
+            <div className='col l16 m6 s12'>
+              <div className='card' id={catImage.id}>
+                <img className="card-img-top p-5" src={catImage.image}></img>
+                <div className='shop-btn p20'>{catImage.categorie}</div>
               </div>
-              </Link>
-            </div>
-          ))}
-      </div>
-    </div>
-    </main>
-      }
+          </div>
+            </Link>
+            ))}
+          </div>
+        </div>
+          </>
+      </main>
     </>
   )
 }

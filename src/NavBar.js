@@ -172,8 +172,8 @@ function NavBar() {
             <ShoppingCartOutlinedIcon/> Shopkart
           </Typography>
           <Box className="navPages" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <Link to='Categories' sx={{ my: 2, color: 'white', display: 'block' }} >
-                <Button>Categories</Button>
+              <Link to='category' sx={{ my: 2, color: 'white', display: 'block' }} >
+                <Button>Categorys</Button>
               </Link>
               <Link to='brand' sx={{ my: 2, color: 'white', display: 'block' }} >
                 <Button>Brand</Button>

@@ -25,7 +25,7 @@ const Cart = () => {
        <div className=''>
         <div className='row'>
               <div className="col l18 m8 s12 mb-5 p-3 list-item cart-item">
-                <div className="card">
+                <div className="card mh-90">
                 {products.map(product => (
                   <div className='row br-1' id={product.id}>
                     <div className='col m4'>

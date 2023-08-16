@@ -28,6 +28,13 @@ a {
 .mt-0 {
 	margin-top: 0px;
 }
+.p20 {
+	padding: 20px;
+}
+.mh-90 {
+	max-height: calc(100vh - 90px);
+    overflow: auto;
+}
 .text-truncate {
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -426,6 +433,7 @@ button:focus {
 header {
 	position: fixed !important;
 	z-index: 9;
+	top: 0;
 }
 main {
 	padding-top: 64px;
