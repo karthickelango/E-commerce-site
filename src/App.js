@@ -7,15 +7,10 @@ import Brand from './Brand';
 import Cart from './Cart'
 import Home from './Home'
 import Wishlist from './Wishlist';
-import { useState } from 'react';
-import api from './api/products'
 import DescriptionPage from './DescriptionPage';
-import { useNavigate } from "react-router-dom";
 import { DataProvider } from './context/DataContext';
-import Electronics from './Electronics';
-import Jewelery from './Jewelery';
-import MenClothing from './MenClothing';
-import WomenClothing from './WomenClothing';
+import Footer from './Footer';
+import Page from './Page';
 
 function App() {
   return (
@@ -29,11 +24,12 @@ function App() {
         <Route path='wishlist' element={<Wishlist/>}></Route>
         <Route path='cart' element={<Cart />}/>
         <Route path='descriptionpage/:id' element={<DescriptionPage />}></Route>
-        <Route path='category/electronics' element={<Electronics />}></Route>
-        <Route path='category/jewelery' element={<Jewelery />}></Route>
-        <Route path='category/menclothings' element={<MenClothing />}></Route>
-        <Route path='category/womenclothings' element={<WomenClothing />}></Route>
+        <Route path='category/electronics' element={<Page />}></Route>
+        <Route path='category/jewelery' element={<Page />}></Route>
+        <Route path='category/menclothings' element={<Page />}></Route>
+        <Route path='category/womenclothings' element={<Page />}></Route>
       </Routes>
+      {/* <Footer></Footer> */}
      </DataProvider>
     </div>
   );

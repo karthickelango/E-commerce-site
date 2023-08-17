@@ -88,7 +88,7 @@ const DescriptionPage = () => {
                                     </div>
                                  </div>
                                  <div className="col l6 m6 s12 hide-on-small-only">
-                                    <a href="cart.html" className="waves-effect chart-btn btn lg">BUY NOW</a>
+                                    <a href="cart.html" className="waves-effect chart-btn btn lg buy-btn">Buy now</a>
                                  </div>
                               </div>
                            </div>

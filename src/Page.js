@@ -2,17 +2,18 @@ import React from 'react'
 import { useState, useEffect, useParams } from 'react'
 import api from './api/products'
 import Loader from './loader.gif'
+import DataContext from './context/DataContext'
+import { useContext } from 'react'
 
-
-
-const Jewelery = () => {
+const Page = () => {
+    const { reqType, setreqType} = useContext(DataContext)
     const [categories, setProducts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-
+    
   useEffect(() => {
     const fetchItems = async() => {
       try {
-        const response = await api.get('products/category/jewelery');
+        const response = await api.get(`products/category/${reqType}`);
         setProducts(response.data)
       } catch(err) {
         console.log(err)
@@ -59,4 +60,4 @@ const Jewelery = () => {
   )
 }
 
-export default Jewelery
+export default Page

@@ -46,6 +46,7 @@ const Cart = () => {
                   </div>
                   ))}
               </div>
+              <div className='text-end'><button className='waves-effect chart-btn btn buy-btn'>Place order</button></div>
             </div>
             <div className='col l14 m4 s12 sticky-card'>
             <div className='card'>

@@ -32,7 +32,7 @@ a {
 	padding: 20px;
 }
 .mh-90 {
-	max-height: calc(100vh - 90px);
+	max-height: calc(100vh - 190px);
     overflow: auto;
 }
 .text-truncate {
@@ -124,7 +124,7 @@ button:focus {
 	}
 
 	&.lg {
-		width: 100%;
+		width: 100% !important;
 		height: 50px;
 		line-height: 50px;
 	}
@@ -155,6 +155,13 @@ button:focus {
 			box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
 		}
 		}
+	&.buy-btn {
+		height: 50px;
+		line-height: 50px;
+		background-color: #fb641b;
+		border: 1px solid #fb641b;
+		width: 30%;
+	}
 }
 
 .list-item {

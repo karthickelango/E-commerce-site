@@ -7,6 +7,7 @@ import storage from 'redux-persist/lib/storage'
 import { combineReducers } from "@reduxjs/toolkit";
 import thunk from 'redux-thunk';
 import descriptionSlice from "./descriptionSlice";
+import pageSlice from "./pageSlice";
 
 const persistConfig = {
     key: 'root',
@@ -16,7 +17,8 @@ const persistConfig = {
   const rootReducer = combineReducers({ 
     cart: cartSlice,
     wishlist: wishlistSlice,
-    descriptionpage: descriptionSlice
+    descriptionpage: descriptionSlice,
+    page: pageSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

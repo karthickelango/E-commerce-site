@@ -7,13 +7,16 @@ const DataContext = createContext({})
 
 export const DataProvider = ({children}) => {
     const [products, setProducts] = useState([])
+    const [categories, setCategories,] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const navigate = useNavigate()
+    const [reqType, setreqType] = useState('')
+
   
     const handelNavigate = (e) => {
       navigate('/cart')
     }
-  
+    // product page
     useEffect(() => {
       const fetchItems = async() => {
         try {
@@ -29,9 +32,10 @@ export const DataProvider = ({children}) => {
         (async() => fetchItems())()
       }, 3000)
     })
+
  return (
     <DataContext.Provider value={{
-        products, isLoading, setIsLoading, handelNavigate
+        products, isLoading, setIsLoading, handelNavigate,reqType, setreqType, categories, setCategories
     }}>
         {children}
     </DataContext.Provider>
