@@ -29,7 +29,7 @@ function App() {
         <Route path='category/jewelery' element={<Page />}></Route>
         <Route path='category/menclothings' element={<Page />}></Route>
         <Route path='category/womenclothings' element={<Page />}></Route>
-        <Route path='payment' element={<PaymentPage />}></Route>
+        <Route path='cart/payment' element={<PaymentPage />}></Route>
       </Routes>
       {/* <Footer></Footer> */}
      </DataProvider>
